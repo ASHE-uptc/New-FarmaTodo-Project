@@ -1,0 +1,3 @@
+Felipe,C,1064356981,felpbec,theOther
+Axel,T,1057980717,ashe,broreceta
+Julian,T,56897413549,julio,balatro
