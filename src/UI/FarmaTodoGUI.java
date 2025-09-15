@@ -41,11 +41,19 @@ public class FarmaTodoGUI extends JFrame{
 
         JButton addButton=new JButton("Add to cart");
         addButton.addActionListener((ActionEvent e)->{
+            int option = 0;
             int selectProduct=productList.getSelectedIndex();
             if (selectProduct!=-1) {
                 Product product=catalog.get(selectProduct);
+            int stock= Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad que desea"));
+            option=JOptionPane.showConfirmDialog(null, "El medicamento: "+product.getPro_name()+" con esa cantidad, tiene un costo de"+(product.getPro_price()*stock)+"\n"+"¿Desea confirmar su compra?");
+            if (option==JOptionPane.YES_OPTION) {
                 order.AddProduct(product);
                 cartArea.append(product.getPro_name()+ "- ($"+product.getPro_price()+") \n");
+            }else if (option==JOptionPane.NO_OPTION) {
+                JOptionPane.showMessageDialog(null, "Compra cancelada exitosamente");
+            }
+                
             }
         });
 
